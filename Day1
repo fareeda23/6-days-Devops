@@ -1,0 +1,134 @@
+dev environment:server where we are  running our application
+
+test environment : where software testing team perform the functionalist casces,non formal test cases,load testing, performance testing
+
+uat:user acceptance test
+production environment
+container: it is a virtual machine where actually  we are  gonnna run the application
+docker file is a text document it contains set of instructions how to run a application in a container
+docker image: is a template it contains what we need to run the applications
+docker hub
+
+=======================
+{#if anytime server becomes inactive then 
+rightclick on cmd prmt heading->restart session
+ 
+sudo su
+service docker start}
+
+
+sudo su
+yum install docker -y
+docker --version
+service docker status
+service docker start
+service docker status
+
+ docker create ubuntu /bin/bash
+ docker ps -a ------->it shows all containers irrespective of their status
+docker start e27801981865
+docker ps ---------->it shows the running contatiners
+docker ps -a
+docker create -it --name webserver amazonlinux /bin/bash
+ docker ps -a
+docker start webserver
+docker ps
+ docker exec -it webserver /bin/bash
+ls
+exit
+docker run -it --name sample ubuntu /bin/bash
+ctrl+p+q
+docker ps
+docker run -td --name web-app -p 3002:3000 muralisocial123/cart-page-test
+docker ps
+
+
+instance->instance id->click on it-> copy ipv4 address->paste in new tab copied code:3002
+
+it wont come..its like site cant be reached so,
+
+==============
+DOCKER FILE
+
+$from : this .base image/parent image of the application
+every docker file must start from instruction
+$copy: to copy a file or directory from a local machine to a docker image
+$add : it is same as copy but it use dto download package from internet to docker image
+$run : it is to help download the dependency packages or to install packages in a container
+$ .dockerignore : if we want to remove unessary packages or a files while we are building a docker image we are going to use .dockerignore
+run command:
+
+$ cmd : it defines which code or artifact we have to have to run in container
+$ entrypoint : it  defines entry of the application.cmd will allow runtime arguments..entrypoint will not allow the runtime arguments
+$ expose  : it defines on which port number we want to access the application
+$ env :it defines environment variable of the application
+
+workdirectory   it defines to keep the files inside the container
+$ user :  if we want to create a user account
+
+
+
+
+===============================
+as a devops engineer  we hav eto collect 
+
+
+==============================================================================================================================
+identify the base image of the application
+create a work directory
+copy the dependies into the docker image
+install the dependies
+copy whole source code from local machine to docker image
+define the exposed port number
+mention which port we have to run in the container
+
+
+
+
+again in putty
+ git clone -b master https://github.com/abhinishetty/Dimple-CapsuleProject.git
+yum install git -y
+ git clone -b master https://github.com/abhinishetty/Dimple-CapsuleProject.git
+ls
+cd Dimple-CapsuleProject
+docker build -t web-app-nodejs:1.0 .
+docker images
+docker inspect web-app-nodejs:1.0
+docker images
+docker run -td --name node-app -p 3015:3015 web-app-nodejs:1.0
+docker ps
+
+
+
+===========
+create a account in hubdocker.com
+then
+docker ps
+docker exec -it web-app /bin/bash
+ls
+exit
+docker images
+docker login 
+docker images
+ docker tag web-app-nodejs:1.0 name/web-app-nodejs
+docker images
+docker push name/web-app-nodejs
+docker images
+docker stats
+
+
+
+1,craete a web project using chatgpt and write a docker file
+2.deploy using ingenix server
+
+
+1.identify the prblms with the containers
+
+
+
+
+
+
+
+
+docker run -td --name web-app1 -p 3015:3015 name/web-app-nodejs:latest
