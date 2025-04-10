@@ -1,0 +1,117 @@
+container will not support auto scaling
+
+' horizontal scaling
+.vertical scaling
+
+scale-down:whenever the traffic goes slow towards the application we have to remove the additional servers
+containers will not support load balancing
+if container is down we are getting application downtime
+containers will not support self healing
+to overcome the prblms we ...orchid tools
+
+what is Kubernetes
+it is a container management tool ,it is going to manage all the containers
+Kubernetes perform the automatic deployment of the application
+Kubernetes feauture:
+orchistrastion
+autoscaling
+load balancing
+self healing
+
+it is platform independent we can run it in any cloud
+to perform the automation Kubernetes we are going to nanifester the files
+
+
+
+create a jump server or 
+
+
+================
+aws->ubuntu
+we have to install kubectl,eksctl,awsli
+vi cluster.sh
+(copy from git) right click
+chmod 777 cluster.sh
+sh cluster.sh
+ls
+sudo su
+sh cluster.sh
+
+
+
+
+
+
+
+
+===
+aws configure
+eksctl
+
+
+
+
+
+
+
+=============
+cluster:
+Kubernetes will manage a application in a cluster
+cluster is a group of nodes .it contains master nodes and worker nodes
+master node is a hero of the cluster which is going to take care of cluster head...…
+worker node:it is where we are going to deploy a application in a cluster
+in a cluster atleast we should have 1 master node and 1 worker node
+clsuters are 2 types
+on-primes cluster
+we have to manage the cluster by ourself,if something goes wrong during application downtime,,we are resposnsible for that
+
+cloud manage clusters:
+this clusters managed by the cloud providers 
+if something goes wrong they are responsible our application...…..
+
+in aws if we want to create a cluster we have a service called eks(elastic kubernatis service)
+
+in a masternode we have 4 componenets:
+1. api server:it is the hero of the cluster.whever e want to perform autoscaling,loadbalancing it plays a crucial role
+2. etcd:it is a distributed strorage where we are going to store theinformation abt the cluster
+3.controllers:it is responsible for monitoring health of the application:it always checks the desired status = active status
+4.scheduler:it is a component it is ging to schedule a pod in a node.{pod:kubernetes will run the application in a pod pod contains containers.pod is the smallest deployable in kuberneetes}
+
+
+worker node componenets:
+1.kubelet:it is responsible for creating pods ,it is going to act as a agent.something goes wrong in a worker node it will communicate with master noode.
+2.container run time: it is responsible for pulling the docker image creating containers, starting container ,it is responsible for managing the container lifecycle
+3.kubeproxy:it is a networking component in a worker node ,it is responsible for creating deployment,exposing application to the internet
+
+
+=========
+$ snap install kubectl --classic
+$aws eks update-kubeconfig --name user-cluster --region eu-north-1
+$ kubectl get nodes
+
+
+
+
+========
+vs code
+======
+1.api version
+2.kind:it defins what kind of object we are 
+3.metadata:it defines name of the objects
+4.spec:a spec defines behaviour of the object
+
+1cpu =1000 milokotes
+1gb=1024 megabytes 
+
+
+
+===============
+
+s
+kubectl apply -f userprofile-deployment.yml
+ kubectl apply -f usernode-js-service.yml
+
+ kubectl get deployments
+
+kubectl get svc
+
